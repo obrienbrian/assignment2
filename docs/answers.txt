@@ -1,0 +1,126 @@
+Git Lab Tutorials Completion Date: 2026-03-06
+GitHub Account Setup Date: 2026-03-06
+
+================================================================================
+ASSIGNMENT QUESTIONS
+================================================================================
+
+1. Console output from the push at the end of step 3.C:
+
+[master 0ea22b9] Add git status output to docs
+ 1 file changed, 5 insertions(+)
+ create mode 100644 docs/status.txt
+To https://github.com/obrienbrian/assignment2.git
+   f4975e5..0ea22b9  master -> master
+
+--------------------------------------------------------------------------------
+
+2. How many commits have been done to the repository so far?
+
+9 commits have been made to the repository.
+
+Command used: git log --oneline | wc -l
+
+--------------------------------------------------------------------------------
+
+3. When was the README.md file modified last?
+
+The README.md file was last modified on 2026-03-06 17:44:04 -0500.
+
+Command used: git log --format="%ai" -- README.md | head -1
+
+--------------------------------------------------------------------------------
+
+4. Mention two reasons why branches are used in a Git repository.
+
+(1) Branches allow developers to work on new features or bug fixes in isolation
+without affecting the main codebase. This means incomplete or experimental work
+does not break the stable version of the code.
+
+(2) Branches enable multiple developers to work on different tasks simultaneously
+in parallel. Each developer can have their own branch, and changes can be merged
+back into the main branch when they are complete and reviewed.
+
+--------------------------------------------------------------------------------
+
+5. What is the difference between git log and git status?
+
+git log displays the commit history of the repository, showing a list of past
+commits with their hashes, authors, dates, and messages. It tells you what has
+already happened in the repository.
+
+git status shows the current state of the working directory and staging area. It
+tells you which files have been modified, which are staged for the next commit,
+and which are untracked. It shows what is happening right now, not what happened
+in the past.
+
+--------------------------------------------------------------------------------
+
+6. What command would you use to see the commits where "Vehicle.h" was one of
+the committed files?
+
+Command: git log -- Vehicle.h
+
+--------------------------------------------------------------------------------
+
+7. What command would you use to see the commits whose commit message contains
+the word "file"?
+
+Command: git log --grep="file"
+
+--------------------------------------------------------------------------------
+
+8. In the context of object-oriented programming:
+
+(I) What is inheritance?
+Inheritance is a mechanism where a new class (subclass/derived class) is created
+from an existing class (superclass/base class), inheriting its attributes and
+methods. The subclass can extend or override the behavior of the parent class.
+For example, in this repository, PoweredVehicle inherits from Vehicle, and Car
+inherits from PoweredVehicle.
+
+(II) What is polymorphism?
+Polymorphism is the ability of objects of different classes to be treated as
+objects of a common base class. It allows the same method call to behave
+differently depending on the actual type of the object. For example, in this
+repository, the mileageEstimate() method is declared as a pure virtual function
+in Vehicle and is implemented differently in Car and Bicycle, but both can be
+called through a Vehicle pointer.
+
+(III) What is encapsulation?
+Encapsulation is the principle of bundling data (attributes) and the methods that
+operate on that data within a single class, while restricting direct access to
+some of the object's internals. This is achieved through access modifiers like
+private, protected, and public. For example, in Vehicle.h, myBrand and myModel
+are private and can only be accessed through public getter and setter methods.
+
+--------------------------------------------------------------------------------
+
+9. What is the main difference between the "Dictator and Lieutenants" workflow
+and the "Integration manager" workflow?
+
+The main difference is the level of hierarchy. In the Integration Manager
+workflow, there is a single integration manager who reviews and merges
+contributions from all developers into the main repository. In the Dictator and
+Lieutenants workflow, there is an additional layer of hierarchy: lieutenants are
+responsible for reviewing and integrating changes from subsets of developers,
+and then the dictator (lead integrator) pulls from the lieutenants' repositories
+to produce the final blessed repository. This extra layer of delegation allows
+the workflow to scale to much larger teams.
+
+--------------------------------------------------------------------------------
+
+10. How would a team of 100 developers benefit from following the "Dictator and
+Lieutenants" workflow instead of the "Centralized" workflow?
+
+With 100 developers, a Centralized workflow would create a bottleneck because
+every developer pushes directly to a single shared repository. Merge conflicts
+would be frequent, and coordinating changes would be extremely difficult.
+
+The Dictator and Lieutenants workflow solves this by dividing the 100 developers
+into smaller groups, each managed by a lieutenant. Each lieutenant reviews and
+integrates the work of their group, resolving conflicts at a smaller scale. The
+dictator then integrates the work of the lieutenants. This hierarchical structure
+reduces bottlenecks, distributes the review workload, improves code quality
+through layered review, and allows the team to work more efficiently in parallel
+without stepping on each other's changes.
